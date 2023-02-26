@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "habl"
+version = "0.1.0"
+description = "Help you create good habits by managing your rewards using gamification techniques."
+authors = ["Jason Mishike <jasonmishi@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+django = "^4.1.7"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
