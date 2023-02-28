@@ -10,7 +10,6 @@ Help manage rewards using gacha game-esque techniques.
 This repository uses [poetry](https://python-poetry.org) for package management. Install poetry and then:
 
 ```sh
-cd habl
 poetry install
 poetry shell
 cd src

@@ -10,6 +10,17 @@ python = "^3.9"
 django = "^4.1.7"
 
 
+[tool.poetry.dev-dependencies]
+black = "^22.10.0"
+flake8 = "^5.0.4"
+pyupgrade = "^3.2.2"
+pre-commit = "^2.20.0"
+isort = "^5.10.1"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"
+
