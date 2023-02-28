@@ -17,6 +17,10 @@ pyupgrade = "^3.2.2"
 pre-commit = "^2.20.0"
 isort = "^5.10.1"
 
+[tool.poetry.group.dev.dependencies]
+pytest-django = "^4.5.2"
+tox = "^4.4.6"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
