@@ -23,4 +23,4 @@ class Profile(models.Model):
 def update_profile_signal(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance, email=instance.email)
-    instance.profile.save()
+        instance.profile.save()
