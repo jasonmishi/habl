@@ -1,4 +1,4 @@
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, Group
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
@@ -6,6 +6,13 @@ from django.dispatch import receiver
 
 class User(AbstractUser):
     pass
+
+    def make_premium(self):
+        group, _ = Group.objects.get_or_create(name="premium")
+        self.groups.add(group)
+
+
+# Group.objects.get_or_create(name='premium')
 
 
 class Profile(models.Model):
@@ -22,6 +29,9 @@ class Profile(models.Model):
     def email(self, new_email):
         self.user.email = new_email
         self.user.save()
+
+    def is_premium(self):
+        return self.user.groups.filter(name="premium").exists()
 
     def __str__(self):
         return self.user.username
