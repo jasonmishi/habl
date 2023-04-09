@@ -13,12 +13,27 @@ We use `pre-commit` for linting, can be run as `poetry run pre-commit run --all-
 Testing is done through `tox` run `poetry run tox`.
 
 ## Getting Started
-This repository uses [poetry](https://python-poetry.org) for package management. Install poetry and then:
-
+This repository uses [poetry](https://python-poetry.org) for package management. Install poetry and then run the following commands to get started.
 ```sh
 poetry install
+```
+To then create a superuser:
+```sh
 poetry shell
 cd src
+python manage.py createsuperuser
+```
+Then start the develpment server:
+```sh
+python manage.py runserver
+```
+
+## Running the project
+To run the development server after following [Getting Started](#getting-started).
+```sh
+poetry shell
+cd src
+python manage.py migrate
 python manage.py runserver
 ```
 
