@@ -12,14 +12,28 @@ class User(AbstractUser):
         self.groups.add(group)
 
 
-# Group.objects.get_or_create(name='premium')
-
-
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    first_name = models.CharField(max_length=100, blank=True)
-    last_name = models.CharField(max_length=100, blank=True)
     bio = models.TextField()
+
+    # properties and setters attributes from User model
+    @property
+    def first_name(self):
+        return self.user.first_name
+
+    @first_name.setter
+    def first_name(self, new_first_name):
+        self.user.first_name = new_first_name
+        self.user.save()
+
+    @property
+    def last_name(self):
+        return self.user.last_name
+
+    @last_name.setter
+    def last_name(self, new_last_name):
+        self.user.last_name = new_last_name
+        self.user.save()
 
     @property
     def email(self):
@@ -41,4 +55,3 @@ class Profile(models.Model):
 def update_profile_signal(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
-        instance.profile.save()
