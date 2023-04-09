@@ -55,6 +55,3 @@ class Profile(models.Model):
 def update_profile_signal(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
-        instance.profile.first_name = instance.first_name
-        instance.profile.last_name = instance.last_name
-        instance.profile.save()
