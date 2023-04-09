@@ -1,2 +1,3 @@
-from .base_settings import *
 from secret_settings import *
+
+from .base_settings import *
